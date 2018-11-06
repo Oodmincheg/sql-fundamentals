@@ -18,7 +18,7 @@ export const ORDER_COLUMNS = ['*'];
  * @type {Readonly<OrderCollectionOptions>}
  */
 const DEFAULT_ORDER_COLLECTION_OPTIONS = Object.freeze(
-  /** @type {OrderCollectionOptions}*/ ({
+  /** @type {OrderCollectionOptions}*/({
     order: 'asc',
     page: 1,
     perPage: 20,
@@ -44,7 +44,7 @@ export async function getAllOrders(opts = {}) {
 
   const db = await getDb();
   return await db.all(sql`
-SELECT ${ALL_ORDERS_COLUMNS.join(',')}
+SELECT ${['id', 'customerid', 'employeeid', 'shipcity', 'shipcountry', 'shippeddate'].join(',')}
 FROM CustomerOrder`);
 }
 

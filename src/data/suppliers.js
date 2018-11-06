@@ -13,7 +13,7 @@ const ALL_SUPPLIERS_COLUMNS = ['*'];
 export async function getAllSuppliers() {
   const db = await getDb();
   return await db.all(sql`
-SELECT ${ALL_SUPPLIERS_COLUMNS.join(',')}
+SELECT ${['id', 'contactname', 'companyname'].join(',')}
 FROM Supplier`);
 }
 
